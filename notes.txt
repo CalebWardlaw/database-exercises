@@ -1,0 +1,28 @@
+mysql.server status
+
+mysql.server start
+
+mysql -u USERNAME -p
+
+SELECT user, host FROM mysql.user;
+
+SHOW GRANTS for 'username'@'hostname';
+
+CREATE USER 'billy'@'localhost' IDENTIFIED BY 'billysSecretP@ass123';
+
+GRANT ALL ON *.* TO 'billy'@'localhost';
+
+DROP USER 'sally'@'localhost';
+
+CREATE DATABASE database_name;
+
+preferred
+CREATE DATABASE IF NOT EXISTS database_name;
+
+USE database_name;
+
+SELECT database();
+
+DROP DATABASE database_name;
+
+DROP DATABASE IF EXISTS database_name;
