@@ -15,3 +15,23 @@ GROUP BY r.id;
 
 USE employees;
 
+SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager'
+FROM employees AS e
+         JOIN dept_manager AS m
+              ON m.emp_no = e.emp_no
+         JOIN departments AS d
+              ON d.dept_no = m.dept_no
+WHERE m.to_date > NOW()
+ORDER BY d.dept_name;
+
+
+SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Manager Name'
+FROM employees AS e
+         JOIN dept_manager AS m
+              ON m.emp_no = e.emp_no
+         JOIN departments AS d
+              ON d.dept_no = m.dept_no
+WHERE m.to_date > NOW()
+  AND e.gender = 'F'
+ORDER BY d.dept_name;
+
