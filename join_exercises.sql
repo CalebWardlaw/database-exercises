@@ -58,3 +58,15 @@ WHERE m.to_date > NOW()
   AND s.to_date > NOW()
 ORDER BY d.dept_name;
 
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee Name', d.dept_name AS 'Department Name', CONCAT(managers.first_name, ' ', managers.last_name) AS 'Manager Name'
+FROM employees AS e
+         JOIN dept_emp AS de
+              ON de.emp_no = e.emp_no
+         JOIN departments AS d
+              ON d.dept_no = de.dept_no
+         JOIN dept_manager AS m
+              ON m.dept_no = d.dept_no
+         JOIN employees AS managers
+              ON m.emp_no = managers.emp_no
+WHERE de.to_date > NOW()
+  AND m.to_date > NOW();
